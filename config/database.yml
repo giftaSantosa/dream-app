@@ -5,11 +5,11 @@ default: &default
 
 development:
   <<: *default
-  database: rails_watch_list_development
+  database: dream-app_development
 
 test:
   <<: *default
-  database: rails_watch_list_test
+  database: dream-app_test
 
 production:
   primary:

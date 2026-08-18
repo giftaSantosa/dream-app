@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_dream
 
-  PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation. You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise (max 5 sentences) and end with a brief practical recommendation."
+  PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation. You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise (max 3 sentences) and end with a brief practical recommendation."
 
   INPTERPRETED_DREAM = "You are stressed, you need to take longer hours in your dream"
 
@@ -24,7 +24,6 @@ class MessagesController < ApplicationController
     else
       render "chat", status: :unprocessable_entity
     end
-
   end
 
   # /dreams/:id/chat

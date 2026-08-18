@@ -8,19 +8,11 @@ class DreamsController < ApplicationController
   end
 
   def create
-    @dream = Dream.new(dream_params)
-    if @dream.save
-      redirect_to dreams_path
-    else
-      render :new, status: :unprocessable_entity
-    end
   end
 
   def show
-    @dream = Dream.find(params[:id])
   end
 
   def update
-    params.require(:dream).permit(:title)
   end
 end

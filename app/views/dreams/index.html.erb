@@ -1,0 +1,32 @@
+<div class="index">
+  <div class="container mt-4" style="max-width: 500px;">
+    <h2 class="mb-4 text-center">Dream History Page</h2>
+
+    <div class="row">
+      <div class="col-12">
+        <% @dreams.each do |dream| %>
+          <div class="card p-3 mb-3 shadow-sm border-0 bg-light rounded-4">
+            <div class="d-flex align-items-center justify-content-between">
+              <!-- Left Section: Avatar Circle + Text -->
+              <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle bg-secondary-subtle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                  <span class="fw-bold text-secondary">A</span>
+                </div>
+
+                <div>
+                  <h6 class="mb-0 fw-bold"><%= dream.title %></h6>
+                  <small class="text-muted">Subhead</small>
+                </div>
+              </div>
+
+              <!-- Right Section: Placeholder Box -->
+              <div class="bg-secondary-subtle rounded p-2" style="width: 50px; height: 40px;">
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

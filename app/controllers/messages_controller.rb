@@ -1,8 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_dream
 
-  PROMPT = "You are an experienced dream analyzer. You combine both mystical and science in your interpretations. You are concise.
-  I will give you an interpreted dream, and I will ask you follow up questions about it. Answer with a sentence that is max 180 characters"
+  PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation. You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise (max 5 sentences) and end with a brief practical recommendation."
 
   INPTERPRETED_DREAM = "You are stressed, you need to take longer hours in your dream"
 

@@ -1,4 +1,7 @@
 <div class="container">
+
+  <h1 class="my-5">Dream Chat </h1>
+
   <div class="messages">
     <%# messages here %>
     <% @messages&.each do |message| %>
@@ -9,7 +12,7 @@
   <div class="chat-input">
     <%# chat input here %>
     <%= simple_form_for [@dream, @message] do |f| %>
-      <%= f.input :content, placeholder: "Ask a question" %>
+      <%= f.input :content, placeholder: "What do you want to know about your dream?" %>
       <%= f.submit "Ask LLM", class: "btn btn-primary" %>
     <% end %>
 

@@ -75,3 +75,5 @@ end
 
 # additionals
 gem "ruby_llm", "~> 1.2.0"
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

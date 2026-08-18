@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="messages">
+    <%# messages here %>
+    <% @messages.each do |message| %>
+    <%= message.content.present? ? message.content : "" %>
+    <% end %>
+  </div>
+
+  <div class="chat-input">
+    <%# chat input here %>
+    <%= simple_form_for [@dream, @message] do |f| %>
+      <%= f.input :content, placeholder: "Ask a question" %>
+      <%= f.submit "Ask LLM", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

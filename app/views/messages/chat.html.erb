@@ -1,8 +1,8 @@
 <div class="container">
   <div class="messages">
     <%# messages here %>
-    <% @messages.each do |message| %>
-    <%= message.content.present? ? message.content : "" %>
+    <% @messages&.each do |message| %>
+      <p><strong><%= message.role.capitalize %></strong>: <%= message.content %></p>
     <% end %>
   </div>
 

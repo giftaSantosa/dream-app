@@ -2,7 +2,7 @@
 
   <% if @dream.title.present? %>
     <h3><%= @dream.title %></h3>
-    <p><%= @dream.mood %></p>
+    <p> mood: <%= @dream.mood %></p>
   <% end %>
 
   <p><%= @dream.input %></p>
@@ -14,7 +14,9 @@
 <div class="container">
 
   <% if @dream.interpretation.present? %>
-    <p><%= @dream.interpretation %></p>
+    <p><%= @dream.summary %></p>
+    <p><%= @dream.theme_list %></p>
+    <p><%= @dream.symbol_list %></p>
   <% end %>
 
 </div>

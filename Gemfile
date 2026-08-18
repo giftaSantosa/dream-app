@@ -74,4 +74,5 @@ group :test do
 end
 
 # additionals
-gem "ruby_llm", "~> 1.2.0"
+gem "ruby_llm"
+gem "acts-as-taggable-on"

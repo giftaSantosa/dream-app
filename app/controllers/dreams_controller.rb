@@ -4,6 +4,7 @@ class DreamsController < ApplicationController
   You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise
   (max 5 sentences) and end with a brief practical recommendation."
   def index
+    @dreams = Dream.all
   end
 
   def new

@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <%= simple_form_for @dream do |f| %>
+
+  <%= f.input :input %>
+  <div class="d-flex">
+      <div>
+        <%= f.input :mood %>
+      </div>
+      <div>
+        <%= f.input :date, as: :date, html5: true %>
+      </div>
+</div>
+  <%= f.submit "Submit", class: 'btn btn-secondary rounded-pill mt-2' %>
+  <%  end                                           %>
+</div>

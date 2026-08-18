@@ -1,0 +1,20 @@
+<div class="container">
+
+  <% if @dream.title.present? %>
+    <h3><%= @dream.title %></h3>
+    <p><%= @dream.mood %></p>
+  <% end %>
+
+  <p><%= @dream.input %></p>
+
+  <p><%= @dream.date.strftime("%B %d, %Y") %></p>
+
+</div>
+
+<div class="container">
+
+  <% if @dream.interpretation.present? %>
+    <p><%= @dream.interpretation %></p>
+  <% end %>
+
+</div>

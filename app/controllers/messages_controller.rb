@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message.dream = @dream
     @message.role = "user"
 
-    if @message.save!
+    if @message.save
       chat = RubyLLM.chat
       chat.with_instructions("#{PROMPT}. This is the interpreted dream #{INPTERPRETED_DREAM}")
       response = chat.ask(@message.content)

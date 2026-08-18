@@ -4,7 +4,14 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.dream = @dream
     @message.role = "user"
+
     if @message.save!
+      # chat = RubyLLM.chat
+      # response = chat.with_instruction(Dream.system_prompt)
+      # Message.create {
+      #   content: response.content,
+      #   role: "assistant"
+      # )
       redirect_to chat_dream_path(@dream)
     else
       render "chat", status: :unprocessable_entity

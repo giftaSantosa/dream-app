@@ -1,30 +1,96 @@
-// 1. Dark background container (Placeholder color until you add your exact Figma gradient)
+// Index page background (only used on index view)
 .index-background {
   background-color: #2d3c5a;
   width: 100%;
-  min-height: 100vh; // Placeholder dark blue matching your Figma frame
+  min-height: 100vh;
 }
 
-// 2. Semi-transparent glass card
+// Mobile screen wrapper (show page)
+.dream-show-wrapper {
+  background-color: #1a2b4c;
+  max-width: 414px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // NEW: makes the phone edges visible against the page
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+// The card itself
 .dream-card {
-  // White with 15% opacity so whatever background is behind it shows through
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  // Blurs the background behind the card for a frosty glass effect
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  // Subtle border highlight
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
+  background-color: #5c6b73;
+  color: #e0e6ed;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 
   &:hover {
-    // Slightly brighter on hover
     background-color: rgba(255, 255, 255, 0.22);
     transform: translateY(-2px);
+  }
+
+  .dream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .dream-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+
+      .dream-mood {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #b0bec5;
+        margin-left: 6px;
+      }
+    }
+
+    .dream-menu-icon {
+      color: #b0bec5;
+      cursor: pointer;
+    }
+  }
+
+  .dream-date {
+    font-size: 0.85rem;
+    color: #b0bec5;
+    margin-bottom: 20px;
+  }
+
+  .dream-input {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #d1d5db;
+    margin-bottom: 24px;
+  }
+
+  .dream-interpretation {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+
+    .dream-summary {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    .dream-tags {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
   }
 }

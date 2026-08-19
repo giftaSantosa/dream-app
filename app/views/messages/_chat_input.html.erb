@@ -1,0 +1,15 @@
+<%= simple_form_for [dream, message] do |f| %>
+  <div class="position-relative">
+    <%= f.input :content,
+        placeholder: "What do you want to know about your dream?",
+        label: false,
+        input_html: {
+          class: "form-control rounded-4 border-0 shadow-sm pe-5",
+          rows: 3,
+          style: "resize: none; background: white;"
+        } %>
+    <%= f.submit "›",
+        class: "btn rounded-circle position-absolute border-0 d-flex align-items-center justify-content-center",
+        style: "bottom: 12px; right: 12px; width: 44px; height: 44px; background: #543168; color: white; font-size: 1.4rem;" %>
+  </div>
+<% end %>

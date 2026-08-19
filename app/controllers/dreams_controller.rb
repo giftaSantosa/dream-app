@@ -17,7 +17,7 @@ class DreamsController < ApplicationController
 
     if @dream.save
 
-      chat = RubyLLM.chat.with_schema(DreamInterpretationSchema)
+      chat = RubyLLM.chat.with_schema(DreamInterpretationSchema).with_temperature(0.8)
 
       response = chat.ask(
         "Interpret this dream: #{@dream.input}. The dreamer's mood was #{@dream.mood}. Considering you're #{PROMPT}"

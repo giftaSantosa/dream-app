@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
   end
 
   def get_llm_response
-    chat = RubyLLM.chat
+    chat = RubyLLM.chat.with_temperature(0.8)
     @dream.messages.each do |message|
       chat.add_message(role: message.role, content: message.content)
     end

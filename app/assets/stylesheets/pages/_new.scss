@@ -1,0 +1,147 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #203360;
+}
+
+.dream-form-page {
+  width: 100vw;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 40px 24px;
+  box-sizing: border-box;
+
+  background-color: #203360;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* TITLE */
+
+.dream-form-title {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+
+/* DATE */
+
+.dream-date-select {
+  width: auto;
+
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.dream-date-select:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* MOOD */
+
+.dream-mood-wrapper {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.dream-mood-label {
+  color: rgba(255, 255, 255, 0.75);
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+.dream-mood {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.dream-mood:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dream-mood::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* DREAM INPUT */
+
+.dream-input-wrapper {
+  margin-bottom: 0 !important;
+}
+
+.dream-input {
+  width: 100%;
+  min-height: 60vh;
+
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.75) !important;
+
+  font-size: 20px;
+  line-height: 1.6;
+
+  resize: none;
+}
+
+.dream-input:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.dream-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.dream-submit {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+  border: none;
+
+  background-color: white;
+  color: #3E006E;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}

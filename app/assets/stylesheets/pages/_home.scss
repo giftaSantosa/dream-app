@@ -1,1 +1,114 @@
-// Specific CSS for your home-page
+// Specific CSS for your home-pagehtml,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home-screen {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100dvh;
+
+  background-image: url("nightsky.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.dream-title {
+  position: absolute;
+
+  top: 291px;
+  left: 50%;
+
+  width: 100%;
+
+  margin: 0;
+
+  text-align: center;
+  color: white;
+
+  transform: translate(-50%, -50px);
+  opacity: 0;
+
+  animation: title-enter 1.2s ease-out forwards;
+}
+
+
+@keyframes title-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+/* ---------------- */
+/* ADD BUTTON */
+/* ---------------- */
+
+.dream-add-button {
+  position: absolute;
+
+  top: 783px;
+  left: 50%;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  background-color: #203360;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+
+  animation: circle-enter 0.3s ease-out 0.1s forwards;
+}
+
+
+.dream-add-button span {
+  color: white;
+
+  font-size: 20px;
+  font-weight: 300;
+
+  width: 10px;
+  height: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Circle grows from its center */
+
+@keyframes circle-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

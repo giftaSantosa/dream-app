@@ -1,25 +1,70 @@
-<h2>Sign up</h2>
+<div class="signup-page">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <h2 class="signup-title">Sign up</h2>
 
-  <div class="form-inputs">
+  <%= simple_form_for(resource,
+                      as: resource_name,
+                      url: registration_path(resource_name)) do |f| %>
+
+    <%= f.error_notification %>
+
     <%= f.input :email,
+                label: false,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                placeholder: "Email",
+                wrapper_html: { class: "signup-email" },
+                input_html: {
+                  autocomplete: "email",
+                  class: "signup-input"
+                } %>
+
     <%= f.input :password,
+                label: false,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                placeholder: "Password",
+                hint: false,
+                wrapper_html: { class: "signup-password" },
+                input_html: {
+                  autocomplete: "new-password",
+                  class: "signup-input"
+                } %>
+
     <%= f.input :password_confirmation,
+                label: false,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                placeholder: "Confirm password",
+                wrapper_html: { class: "signup-password-confirmation" },
+                input_html: {
+                  autocomplete: "new-password",
+                  class: "signup-input"
+                } %>
+
+    <div class="signup-actions">
+      <%= f.button :submit, "Sign up", class: "signup-button" %>
+    </div>
+
+  <% end %>
+
+  <!-- OmniAuth -->
+  <div class="signup-omniauth">
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= button_to "Sign up with Google",
+              omniauth_authorize_path(resource_name, provider),
+              data: { turbo: false },
+              class: "signup-omniauth-button" %>
+      <% end %>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="signup-login">
+    <span>Already have an account?</span>
+
+    <%= link_to "Log in here",
+                new_session_path(resource_name),
+                class: "signup-login-link" %>
+  </div>
+
+</div>

@@ -1,0 +1,136 @@
+.signup-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.signup-title {
+  position: absolute;
+  top: 186px;
+  left: 40px;
+  margin: 0;
+}
+
+
+/* EMAIL */
+
+.signup-email {
+  position: absolute;
+  top: 312px;
+  left: 40px;
+  right: 40px;
+  margin: 0;
+}
+
+
+/* PASSWORD */
+
+.signup-password {
+  position: absolute;
+  top: 390px;
+  left: 40px;
+  right: 40px;
+  margin: 0;
+}
+
+
+/* PASSWORD CONFIRMATION */
+
+.signup-password-confirmation {
+  position: absolute;
+  top: 468px;
+  left: 40px;
+  right: 40px;
+  margin: 0;
+}
+
+
+/* ALL INPUTS */
+
+.signup-input {
+  height: 45px;
+  border-radius: 8px;
+}
+
+
+/* SIGN UP BUTTON */
+
+.signup-actions {
+  position: absolute;
+  top: 588px;
+  left: 40px;
+  right: 40px;
+}
+
+.signup-button {
+  width: 100%;
+  height: 45px;
+
+  background-color: white;
+  color: #3E006E;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+}
+
+.signup-button:hover {
+  background-color: #f2f2f2;
+  color: #3E006E;
+}
+
+
+/* LOGIN LINK */
+
+.signup-login {
+  position: absolute;
+  top: 650px;
+  left: 40px;
+  right: 40px;
+
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup-login-link {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-login-link:hover {
+  text-decoration: underline;
+}
+
+.signup-omniauth {
+  position: absolute;
+  top: 650px;
+  left: 40px;
+  right: 40px;
+}
+
+.signup-omniauth-button {
+  width: 100%;
+  height: 45px;
+
+  background-color: transparent;
+  color: white;
+
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.signup-omniauth-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.signup-login {
+  position: absolute;
+  top: 720px;
+  left: 40px;
+  right: 40px;
+
+  text-align: center;
+  font-size: 14px;
+}

@@ -1,12 +1,7 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.navbar-dream {
+  transition: transform 0.1s ease-out;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  &:active {
+    transform: scale(1.2);
+  }
 }

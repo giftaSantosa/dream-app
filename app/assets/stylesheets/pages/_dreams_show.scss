@@ -1,0 +1,30 @@
+// 1. Dark background container (Placeholder color until you add your exact Figma gradient)
+.index-background {
+  background-color: #1a2b4c;
+  width: 100%;
+  min-height: 100vh; // Placeholder dark blue matching your Figma frame
+}
+
+// 2. Semi-transparent glass card
+.dream-card {
+  // White with 15% opacity so whatever background is behind it shows through
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  // Blurs the background behind the card for a frosty glass effect
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  // Subtle border highlight
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    // Slightly brighter on hover
+    background-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
+}

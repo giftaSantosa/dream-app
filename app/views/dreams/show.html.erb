@@ -1,26 +1,43 @@
 <div class="dream-show-wrapper">
   <div class="dream-card">
-    <% if @dream.title.present? %>
-      <div class="dream-header">
-        <h3 class="dream-title">
-          <%= @dream.title %>
-          <span class="dream-mood"><%= @dream.mood %></span>
-        </h3>
-        <i class="fa-solid fa-ellipsis-vertical dream-menu-icon"></i>
-      </div>
-    <% end %>
 
-    <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
+    <%# Safe Header %>
+    <div class="dream-header">
+      <h3 class="dream-title">
+        <%= @dream.title.presence || "Untitled Dream" %>
+        <% if @dream.mood.present? %>
+          <span class="dream-mood"><%= @dream.mood %></span>
+        <% end %>
+      </h3>
+      <i class="fa-solid fa-ellipsis-vertical dream-menu-icon"></i>
+    </div>
+
+    <%# Safe Date %>
+    <% if @dream.respond_to?(:date) && @dream.date.present? %>
+      <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
+    <% elsif @dream.created_at.present? %>
+      <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
+    <% end %>
 
     <div class="dream-body">
       <p class="dream-input"><%= @dream.input %></p>
     </div>
 
-    <% if @dream.interpretation.present? %>
+    <% if @dream.try(:interpretation).present? %>
       <div class="dream-interpretation">
-        <p class="dream-summary"><%= @dream.summary %></p>
-        <p class="dream-tags"><%= @dream.theme_list %></p>
-        <p class="dream-tags"><%= @dream.symbol_list %></p>
+        <% if @dream.try(:summary).present? %>
+          <p class="dream-summary"><%= @dream.summary %></p>
+        <% end %>
+
+        <div class="dream-tags-container">
+          <% if @dream.respond_to?(:theme_list) && @dream.theme_list.present? %>
+            <p class="dream-tags"><%= @dream.theme_list %></p>
+          <% end %>
+
+          <% if @dream.respond_to?(:symbol_list) && @dream.symbol_list.present? %>
+            <p class="dream-tags"><%= @dream.symbol_list %></p>
+          <% end %>
+        </div>
       </div>
     <% end %>
 

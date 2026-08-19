@@ -1,51 +1,42 @@
-// 1. Dark background container (Placeholder color until you add your exact Figma gradient)
+// Index page background (only used on index view)
 .index-background {
   background-color: #1a2b4c;
   width: 100%;
-  min-height: 100vh; // Placeholder dark blue matching your Figma frame
-}
-
-// 2. Semi-transparent glass card
-.dream-card {
-  // White with 15% opacity so whatever background is behind it shows through
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  // Blurs the background behind the card for a frosty glass effect
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  // Subtle border highlight
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  transition: transform 0.2s ease, background-color 0.2s ease;
-
-  &:hover {
-    // Slightly brighter on hover
-    background-color: rgba(255, 255, 255, 0.22);
-    transform: translateY(-2px);
-  }
-}
-
-.dream-show-wrapper {
-  background-color: #1a2b4c; // Dark blue background
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px 16px;
 }
 
+// Mobile screen wrapper (show page)
+.dream-show-wrapper {
+  background-color: #1a2b4c;
+  max-width: 414px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // NEW: makes the phone edges visible against the page
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+// The card itself
 .dream-card {
-  background-color: #5c6b73; // Slate gray card background
+  background-color: #5c6b73;
   color: #e0e6ed;
   border-radius: 16px;
   padding: 24px;
-  max-width: 480px;
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
 
   .dream-header {
     display: flex;

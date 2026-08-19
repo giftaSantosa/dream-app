@@ -1,0 +1,7 @@
+<%= turbo_stream.append "messages" do %>
+  <%= render "messages/messages", messages: [@message, @ai_message] %>
+<% end %>
+
+<%= turbo_stream.update "chat-input" do %>
+  <%= render "messages/chat_input", dream: @dream, message: Message.new %>
+<% end %>

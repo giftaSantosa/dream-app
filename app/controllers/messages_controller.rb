@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     @message.role = "user"
     if @message.save
       get_llm_response
-      redirect_to chat_dream_path(@dream)
+      # redirect_to chat_dream_path(@dream)
     else
       render "chat", status: :unprocessable_entity
     end
@@ -21,8 +21,6 @@ class MessagesController < ApplicationController
   def chat
     @message = Message.new
     @messages = @dream.messages.order(:created_at)
-    @user_messages = @dream.messages.where(role: "user")
-    @asssistant_messages = @dream.messages.where(role: "assistant")
   end
 
   private
@@ -43,11 +41,11 @@ class MessagesController < ApplicationController
     end
     chat.with_instructions("#{PROMPT}. This is the interpreted dream #{INPTERPRETED_DREAM}")
     response = chat.ask(@message.content)
-    ai_message = Message.new(
+    @ai_message = Message.new(
       content: response.content,
       role: "assistant",
       dream: @dream
     )
-    ai_message.save
+    @ai_message.save
   end
 end

@@ -1,0 +1,4 @@
+<%= simple_form_for [dream, message] do |f| %>
+  <%= f.input :content, placeholder: "What do you want to know about your dream?" %>
+  <%= f.submit "Ask LLM", class: "btn btn-primary" %>
+<% end %>

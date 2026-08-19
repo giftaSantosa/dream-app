@@ -1,15 +1,41 @@
-<div class="container my-5">
+<div class="dream-form-page">
   <%= simple_form_for @dream do |f| %>
 
-  <%= f.input :input %>
-  <div class="d-flex">
-      <div>
-        <%= f.input :mood %>
-      </div>
-      <div>
-        <%= f.input :date, as: :date, html5: true %>
-      </div>
-</div>
-  <%= f.submit "Submit", class: 'btn btn-secondary rounded-pill mt-2' %>
-  <%  end                                           %>
+    <h1 class="dream-form-title">What did you dream?</h1>
+
+    <%= f.input :date,
+                label: false,
+                collection: (0..30).map { |i|
+                  date = Date.yesterday - i.days
+                  [date.strftime("%B %d, %Y"), date]
+                },
+                selected: (@dream.date || Date.yesterday),
+                input_html: {
+                  class: "dream-date-select"
+                } %>
+
+    <div class="dream-mood-wrapper">
+      <span class="dream-mood-label">Mood:</span>
+
+      <%= f.input :mood,
+                  label: false,
+                  wrapper_html: { class: "dream-mood-input-wrapper" },
+                  input_html: {
+                    class: "dream-mood",
+                    placeholder: "How did you feel?"
+                  } %>
+    </div>
+
+    <%= f.input :input,
+                label: false,
+                wrapper_html: { class: "dream-input-wrapper" },
+                input_html: {
+                  class: "dream-input",
+                  placeholder: "Tell me about your dream"
+                } %>
+
+    <%= f.submit "Send",
+             class: "dream-submit" %>
+
+  <% end %>
 </div>

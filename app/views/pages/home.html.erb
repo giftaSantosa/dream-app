@@ -1,2 +1,9 @@
-  <h1>What did you dream about?</h1>
-  <p>Share your thoughts or describe your latest dream below.</p>
+<div class="home-screen">
+  <h1 class="dream-title">
+    What did you dream?
+  </h1>
+
+  <%= link_to new_dream_path, class: "dream-add-button" do %>
+    <span>+</span>
+  <% end %>
+</div>

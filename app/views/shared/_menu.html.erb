@@ -1,0 +1,48 @@
+<div class="menu">
+
+  <!-- Invisible checkbox controls open/close -->
+  <input
+    type="checkbox"
+    id="menu-toggle"
+    class="menu-checkbox"
+  >
+
+  <!-- Hamburger -->
+  <label for="menu-toggle" class="menu-hamburger">
+    <i class="fa-solid fa-bars"></i>
+  </label>
+
+
+  <!-- Menu -->
+  <div class="menu-dropdown">
+
+    <div class="menu-row">
+
+      <%= link_to "Dreams",
+          dreams_path,
+          class: "menu-link" %>
+
+      <!-- Close -->
+      <label for="menu-toggle" class="menu-close">
+        <i class="fa-solid fa-xmark"></i>
+      </label>
+
+    </div>
+
+
+    <%= link_to "Settings",
+        edit_user_registration_path,
+        class: "menu-link" %>
+
+
+    <div class="menu-divider"></div>
+
+
+    <%= button_to "Log out",
+        destroy_user_session_path,
+        method: :delete,
+        class: "menu-logout" %>
+
+  </div>
+
+</div>

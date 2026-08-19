@@ -27,6 +27,7 @@
     <div class="container-ours">
       <div class="main-content">
         <%= render "shared/flashes" %>
+        <%= render "shared/menu" %>
         <%= yield %>
       </div>
       <% if controller_name == "dreams" && action_name == "show" %>

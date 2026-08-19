@@ -1,22 +1,28 @@
-<div class="container">
+<div class="dream-show-wrapper">
+  <div class="dream-card">
+    <% if @dream.title.present? %>
+      <div class="dream-header">
+        <h3 class="dream-title">
+          <%= @dream.title %>
+          <span class="dream-mood"><%= @dream.mood %></span>
+        </h3>
+        <i class="fa-solid fa-ellipsis-vertical dream-menu-icon"></i>
+      </div>
+    <% end %>
 
-  <% if @dream.title.present? %>
-    <h3><%= @dream.title %></h3>
-    <p> mood: <%= @dream.mood %></p>
-  <% end %>
+    <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
 
-  <p><%= @dream.input %></p>
+    <div class="dream-body">
+      <p class="dream-input"><%= @dream.input %></p>
+    </div>
 
-  <p><%= @dream.date.strftime("%B %d, %Y") %></p>
+    <% if @dream.interpretation.present? %>
+      <div class="dream-interpretation">
+        <p class="dream-summary"><%= @dream.summary %></p>
+        <p class="dream-tags"><%= @dream.theme_list %></p>
+        <p class="dream-tags"><%= @dream.symbol_list %></p>
+      </div>
+    <% end %>
 
-</div>
-
-<div class="container">
-
-  <% if @dream.interpretation.present? %>
-    <p><%= @dream.summary %></p>
-    <p><%= @dream.theme_list %></p>
-    <p><%= @dream.symbol_list %></p>
-  <% end %>
-
+  </div>
 </div>

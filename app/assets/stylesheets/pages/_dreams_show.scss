@@ -28,3 +28,78 @@
     transform: translateY(-2px);
   }
 }
+
+.dream-show-wrapper {
+  background-color: #1a2b4c; // Dark blue background
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+.dream-card {
+  background-color: #5c6b73; // Slate gray card background
+  color: #e0e6ed;
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  .dream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .dream-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+
+      .dream-mood {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #b0bec5;
+        margin-left: 6px;
+      }
+    }
+
+    .dream-menu-icon {
+      color: #b0bec5;
+      cursor: pointer;
+    }
+  }
+
+  .dream-date {
+    font-size: 0.85rem;
+    color: #b0bec5;
+    margin-bottom: 20px;
+  }
+
+  .dream-input {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #d1d5db;
+    margin-bottom: 24px;
+  }
+
+  .dream-interpretation {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+
+    .dream-summary {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+    }
+
+    .dream-tags {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+  }
+}

@@ -13,6 +13,7 @@ class MessagesController < ApplicationController
       get_llm_response
       # redirect_to chat_dream_path(@dream)
     else
+      @messages = @dream.messages.order(:created_at)
       render "chat", status: :unprocessable_entity
     end
   end

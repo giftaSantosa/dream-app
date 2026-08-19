@@ -46,6 +46,17 @@
 
   <% end %>
 
+  <div class="signup-omniauth">
+    <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= button_to "Easy Login with Google",
+              omniauth_authorize_path(resource_name, provider),
+              data: { turbo: false },
+              class: "signup-omniauth-button" %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="signin-signup">
     <span>Don't have an account?</span>
     <%= link_to "Sign up here",

@@ -46,19 +46,6 @@
 
   <% end %>
 
-  <!-- OmniAuth -->
-  <div class="signup-omniauth">
-    <%- if devise_mapping.omniauthable? %>
-      <%- resource_class.omniauth_providers.each do |provider| %>
-        <%= button_to "Sign up with Google",
-              omniauth_authorize_path(resource_name, provider),
-              data: { turbo: false },
-              class: "signup-omniauth-button" %>
-      <% end %>
-    <% end %>
-  </div>
-
-
   <div class="signup-login">
     <span>Already have an account?</span>
 

@@ -78,3 +78,4 @@ gem "ruby_llm"
 gem "acts-as-taggable-on"
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem "cloudinary"

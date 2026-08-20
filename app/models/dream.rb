@@ -10,6 +10,8 @@ class Dream < ApplicationRecord
   validates :input, presence: true
   validates :date, presence: true
 
+  has_one_attached :image
+
   private
 
   def set_default_date

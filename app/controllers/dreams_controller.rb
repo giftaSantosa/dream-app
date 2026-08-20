@@ -22,15 +22,11 @@ class DreamsController < ApplicationController
     @dream.user = current_user
 
     if @dream.save
-
       chat = RubyLLM.chat.with_schema(DreamInterpretationSchema).with_temperature(0.8)
-
       response = chat.ask(
         "Interpret this dream: #{@dream.input}. The dreamer's mood was #{@dream.mood}. Considering you're #{PROMPT}"
       )
-
       result = response.content
-
       @dream.update!(
         title: result["dream_title"],
         interpretation: {
@@ -47,6 +43,9 @@ class DreamsController < ApplicationController
         @dream.symbol_list.add(symbol)
       end
       @dream.save
+
+      # generate_dream_image(@dream, result)
+      ImageGenerationJob.perform_later(@dream, result)
 
       redirect_to dream_path(@dream)
 
@@ -66,5 +65,21 @@ class DreamsController < ApplicationController
 
   def dream_params
     params.require(:dream).permit(:input, :date, :mood)
+  end
+
+  def generate_dream_image(dream, result)
+    image_prompt = "Make a surreal, dream-like ghibli-styled animation illustration representing #{result['summary']}. Take consideration of themes like #{result['dream_themes']}, and symbols like #{result['dream_symbols']}. If given any, my mood on that dream is #{dream.mood}"
+
+    image = RubyLLM.paint(image_prompt)
+
+    dream.image.attach(
+      io: StringIO.new(image.to_blob),
+      filename: "dream_#{dream.id}.png",
+      content_type: image.mime_type || "image/png",
+      key: "#{Rails.env}/dream_#{dream.id}_#{SecureRandom.hex(8)}.png"
+    )
+  rescue RubyLLM::Error => e
+    Rails.logger.error("Image generation failed for Dream ##{dream.id}: #{e.message}")
+    # swallow the error so a failed image doesn't block the redirect
   end
 end

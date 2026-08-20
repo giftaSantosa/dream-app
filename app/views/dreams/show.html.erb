@@ -24,7 +24,14 @@
     <div class="dream-body text-wrap">
       <p class="dream-input"><%= @dream.input %></p>
       <div id="<%= dom_id(@dream) %>">
-        <%= render "shared/show_image", dream: @dream %>
+        <% if @dream.image.attached? %>
+          <%= render "shared/show_image", dream: @dream %>
+        <% else %>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <span data-controller="typed-text"
+          data-typed-text-strings-value='["Consulting a sleep-deprived oracle... (1/5)", "Asking your subconscious to explain itself... (2/5)", "Negotiating with the dream butcher... (3/5)", "Adding an inexplicable amount of drama... (4/5)", "Pretending this all makes sense... (5/5)", "Almost there......", "Just a little bit more.......", "A tiny tiny tiny bit more......."]'
+          data-typed-text-type-speed-value="80"></span>
+        <% end %>
       </div>
     </div>
 

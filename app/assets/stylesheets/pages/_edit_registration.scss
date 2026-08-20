@@ -13,8 +13,6 @@
 }
 
 
-/* TITLE */
-
 .edit-title {
   position: absolute;
   top: 140px;
@@ -25,8 +23,6 @@
   color: white;
 }
 
-
-/* EMAIL */
 
 .edit-email {
   position: absolute;
@@ -39,8 +35,6 @@
 }
 
 
-/* PASSWORD */
-
 .edit-password {
   position: absolute;
 
@@ -51,8 +45,6 @@
   margin: 0;
 }
 
-
-/* PASSWORD CONFIRMATION */
 
 .edit-password-confirmation {
   position: absolute;
@@ -65,8 +57,6 @@
 }
 
 
-/* CURRENT PASSWORD */
-
 .edit-current-password {
   position: absolute;
 
@@ -78,16 +68,12 @@
 }
 
 
-/* ALL INPUTS */
-
 .edit-input {
   height: 45px;
 
   border-radius: 8px;
 }
 
-
-/* CONFIRMATION MESSAGE */
 
 .edit-confirmation {
   position: absolute;
@@ -101,8 +87,6 @@
   font-size: 12px;
 }
 
-
-/* UPDATE BUTTON */
 
 .edit-actions {
   position: absolute;
@@ -131,8 +115,6 @@
   color: #3E006E;
 }
 
-
-/* CANCEL ACCOUNT */
 
 .edit-cancel {
   position: absolute;
@@ -167,9 +149,6 @@
   color: white;
   border-color: white;
 }
-
-
-/* BACK */
 
 .edit-back {
   position: absolute;

@@ -12,6 +12,7 @@
 }
 
 .signup-title {
+  color: white;
   position: absolute;
   top: 186px;
   left: 40px;
@@ -19,7 +20,6 @@
 }
 
 
-/* EMAIL */
 
 .signup-email {
   position: absolute;
@@ -30,8 +30,6 @@
 }
 
 
-/* PASSWORD */
-
 .signup-password {
   position: absolute;
   top: 390px;
@@ -39,9 +37,6 @@
   right: 40px;
   margin: 0;
 }
-
-
-/* PASSWORD CONFIRMATION */
 
 .signup-password-confirmation {
   position: absolute;
@@ -52,15 +47,10 @@
 }
 
 
-/* ALL INPUTS */
-
 .signup-input {
   height: 45px;
   border-radius: 8px;
 }
-
-
-/* SIGN UP BUTTON */
 
 .signup-actions {
   position: absolute;
@@ -87,10 +77,8 @@
   color: #3E006E;
 }
 
-
-/* LOGIN LINK */
-
 .signup-login {
+  color: white;
   position: absolute;
   top: 650px;
   left: 40px;

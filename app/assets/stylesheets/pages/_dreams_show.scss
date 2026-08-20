@@ -1,11 +1,10 @@
-// Index page background (only used on index view)
+
 .index-background {
-  background-color: #2d3c5a;
+  background-color: #161E2D;
   width: 100%;
   min-height: 100vh;
 }
 
-// Mobile screen wrapper (show page)
 .dream-show-wrapper {
   background-color: #1a2b4c;
   max-width: 414px;
@@ -17,13 +16,11 @@
   flex-direction: column;
   align-items: center;
 
-  // NEW: makes the phone edges visible against the page
   border-left: 1px solid rgba(255, 255, 255, 0.08);
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
-// The card itself
 .dream-card {
   background-color: #5c6b73;
   color: #e0e6ed;
@@ -66,19 +63,20 @@
   .dream-date {
     font-size: 0.85rem;
     color: #b0bec5;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
   .dream-input {
     font-size: 0.95rem;
     line-height: 1.5;
     color: #d1d5db;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
   }
 
   .dream-interpretation {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 16px;
+    padding-top: 10px;
+    word-spacing: -3px;
 
     .dream-summary {
       font-size: 0.9rem;

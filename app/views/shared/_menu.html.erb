@@ -18,8 +18,8 @@
 
     <div class="menu-row">
 
-      <%= link_to "Dreams",
-          dreams_path,
+      <%= link_to "Home",
+          root_path,
           class: "menu-link" %>
 
       <!-- Close -->
@@ -29,6 +29,9 @@
 
     </div>
 
+      <%= link_to "Dreams",
+          dreams_path,
+          class: "menu-link" %>
 
     <%= link_to "Settings",
         edit_user_registration_path,

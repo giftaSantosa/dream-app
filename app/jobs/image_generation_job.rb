@@ -4,7 +4,7 @@ class ImageGenerationJob < ApplicationJob
   queue_as :default
 
   def perform(dream, result)
-    image_prompt = "Make a surreal, dream-like ghibli-styled animation illustration representing #{result['summary']}. Take consideration of themes like #{result['dream_themes']}, and symbols like #{result['dream_symbols']}. If given any, my mood on that dream is #{dream.mood}"
+    image_prompt = "Make a surreal illustration representing #{result['summary']}. The illustration style should take consideration of themes like #{result['dream_themes']}, and symbols like #{result['dream_symbols']}. If given any, my mood on that dream is #{dream.mood}"
 
     image = RubyLLM.paint(image_prompt)
 

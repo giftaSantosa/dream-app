@@ -1,57 +1,61 @@
-<div class="signup-page">
+<div class="app-container">
 
-  <h2 class="signup-title">Sign up</h2>
+  <div class="signup-page">
 
-  <%= simple_form_for(resource,
-                      as: resource_name,
-                      url: registration_path(resource_name)) do |f| %>
+    <h2 class="signup-title">Sign up</h2>
 
-    <%= f.error_notification %>
+    <%= simple_form_for(resource,
+                        as: resource_name,
+                        url: registration_path(resource_name)) do |f| %>
 
-    <%= f.input :email,
-                label: false,
-                required: true,
-                autofocus: true,
-                placeholder: "Email",
-                wrapper_html: { class: "signup-email" },
-                input_html: {
-                  autocomplete: "email",
-                  class: "signup-input"
-                } %>
+      <%= f.error_notification %>
 
-    <%= f.input :password,
-                label: false,
-                required: true,
-                placeholder: "Password",
-                hint: false,
-                wrapper_html: { class: "signup-password" },
-                input_html: {
-                  autocomplete: "new-password",
-                  class: "signup-input"
-                } %>
+      <%= f.input :email,
+                  label: false,
+                  required: true,
+                  autofocus: true,
+                  placeholder: "Email",
+                  wrapper_html: { class: "signup-email" },
+                  input_html: {
+                    autocomplete: "email",
+                    class: "signup-input"
+                  } %>
 
-    <%= f.input :password_confirmation,
-                label: false,
-                required: true,
-                placeholder: "Confirm password",
-                wrapper_html: { class: "signup-password-confirmation" },
-                input_html: {
-                  autocomplete: "new-password",
-                  class: "signup-input"
-                } %>
+      <%= f.input :password,
+                  label: false,
+                  required: true,
+                  placeholder: "Password",
+                  hint: false,
+                  wrapper_html: { class: "signup-password" },
+                  input_html: {
+                    autocomplete: "new-password",
+                    class: "signup-input"
+                  } %>
 
-    <div class="signup-actions">
-      <%= f.button :submit, "Sign up", class: "signup-button" %>
+      <%= f.input :password_confirmation,
+                  label: false,
+                  required: true,
+                  placeholder: "Confirm password",
+                  wrapper_html: { class: "signup-password-confirmation" },
+                  input_html: {
+                    autocomplete: "new-password",
+                    class: "signup-input"
+                  } %>
+
+      <div class="signup-actions">
+        <%= f.button :submit, "Sign up", class: "signup-button" %>
+      </div>
+
+    <% end %>
+
+    <div class="signup-login">
+      <span>Already have an account?</span>
+
+      <%= link_to "Log in here",
+                  new_session_path(resource_name),
+                  class: "signup-login-link" %>
     </div>
 
-  <% end %>
-
-  <div class="signup-login">
-    <span>Already have an account?</span>
-
-    <%= link_to "Log in here",
-                new_session_path(resource_name),
-                class: "signup-login-link" %>
   </div>
 
 </div>

@@ -9,7 +9,7 @@
           <span class="dream-mood"><%= @dream.mood %></span>
         <% end %>
       </h3>
-      <i class="fa-solid fa-ellipsis-vertical dream-menu-icon"></i>
+
     </div>
 
     <%# Safe Date %>
@@ -19,7 +19,7 @@
       <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
     <% end %>
 
-    <div class="dream-body">
+    <div class="dream-body text-wrap">
       <p class="dream-input"><%= @dream.input %></p>
     </div>
 

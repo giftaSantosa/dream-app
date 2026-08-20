@@ -41,5 +41,10 @@
       </div>
     <% end %>
 
+  <% if @dream.image.attached? %>
+    <%= image_tag @dream.image, class: "dream-image", style: "width: 298px; height: 298px;"  %>
+  <% end %>
+
+
   </div>
 </div>

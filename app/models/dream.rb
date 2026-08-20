@@ -9,7 +9,6 @@ class Dream < ApplicationRecord
   before_validation :set_default_date, on: :create
   validates :input, presence: true
   validates :date, presence: true
-  validates :mood, presence: true
 
   private
 

@@ -63,19 +63,20 @@
   .dream-date {
     font-size: 0.85rem;
     color: #b0bec5;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
   }
 
   .dream-input {
     font-size: 0.95rem;
     line-height: 1.5;
     color: #d1d5db;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
   }
 
   .dream-interpretation {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 16px;
+    padding-top: 10px;
+    word-spacing: -3px;
 
     .dream-summary {
       font-size: 0.9rem;

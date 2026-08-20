@@ -30,13 +30,28 @@
         <% end %>
 
         <div class="dream-tags-container">
+
           <% if @dream.respond_to?(:theme_list) && @dream.theme_list.present? %>
-            <p class="dream-tags"><%= @dream.theme_list %></p>
+            <div class="dream-tag-group dream-themes">
+              <% @dream.theme_list.each do |theme| %>
+                <%= link_to theme,
+                    dreams_path(theme: theme),
+                    class: "dream-tag dream-theme-tag" %>
+              <% end %>
+            </div>
           <% end %>
 
           <% if @dream.respond_to?(:symbol_list) && @dream.symbol_list.present? %>
-            <p class="dream-tags"><%= @dream.symbol_list %></p>
+            <div class="dream-tag-group dream-symbols">
+              <% @dream.symbol_list.each do |symbol| %>
+                <%= link_to symbol,
+                    dreams_path(symbol: symbol),
+                    class: "dream-tag dream-symbol-tag" %>
+              <% end %>
+            </div>
           <% end %>
+
+</div>
         </div>
       </div>
     <% end %>

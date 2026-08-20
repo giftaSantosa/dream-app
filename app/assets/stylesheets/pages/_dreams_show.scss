@@ -30,10 +30,10 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.22);
-    transform: translateY(-2px);
-  }
+  // &:hover {
+  //   background-color: rgba(255, 255, 255, 0.22);
+  //   transform: translateY(-2px);
+  // }
 
   .dream-header {
     display: flex;
@@ -74,9 +74,8 @@
   }
 
   .dream-interpretation {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 10px;
-    word-spacing: -3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
 
     .dream-summary {
       font-size: 0.9rem;
@@ -85,10 +84,22 @@
       margin-bottom: 16px;
     }
 
-    .dream-tags {
+    .dream-tags-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px; // space between themes and symbols
+    }
+
+    .dream-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px; // space between individual tags
+    }
+
+    .dream-tag {
       font-size: 0.85rem;
       color: #94a3b8;
-      margin-bottom: 8px;
+      text-decoration: none;
     }
   }
 }

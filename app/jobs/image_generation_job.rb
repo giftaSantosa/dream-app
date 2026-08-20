@@ -1,4 +1,6 @@
 class ImageGenerationJob < ApplicationJob
+  include ActionView::RecordIdentifier
+
   queue_as :default
 
   def perform(dream, result)
@@ -9,11 +11,13 @@ class ImageGenerationJob < ApplicationJob
     dream.image.attach(
       io: StringIO.new(image.to_blob),
       filename: "dream_#{dream.id}.png",
-      content_type: image.mime_type || "image/png",
-      key: "#{Rails.env}/dream_#{dream.id}_#{SecureRandom.hex(8)}.png"
+      content_type: image.mime_type || "image/png"
+      # key: "#{Rails.env}/dream_#{dream.id}_#{SecureRandom.hex(8)}.png"
     )
-  rescue RubyLLM::Error => e
-    Rails.logger.error("Image generation failed for Dream ##{dream.id}: #{e.message}")
+    # rescue RubyLLM::Error => e
+    #   Rails.logger.error("Image generation failed for Dream ##{dream.id}: #{e.message}")
     # swallow the error so a failed image doesn't block the redirect
+    Turbo::StreamsChannel.broadcast_append_to(dream, target: dom_id(dream), partial: "shared/show_image",
+                                                     locals: { dream: dream })
   end
 end

@@ -1,3 +1,5 @@
+<%= turbo_stream_from @dream %>
+
 <div class="dream-show-wrapper">
   <div class="dream-card">
 
@@ -41,9 +43,9 @@
       </div>
     <% end %>
 
-  <% if @dream.image.attached? %>
-    <%= image_tag @dream.image, class: "dream-image", style: "width: 298px; height: 298px;"  %>
-  <% end %>
+  <div id="<%= dom_id(@dream) %>">
+    <%= render "shared/show_image", dream: @dream %>
+  </div>
 
 
   </div>

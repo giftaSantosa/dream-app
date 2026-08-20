@@ -4,7 +4,13 @@ class DreamsController < ApplicationController
   You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise
   (max 5 sentences) and end with a brief practical recommendation."
   def index
-    @dreams = Dream.all
+    @dreams = current_user.dreams
+
+    if params[:theme].present?
+      @dreams = @dreams.tagged_with(params[:theme], on: :themes)
+    elsif params[:symbol].present?
+      @dreams = @dreams.tagged_with(params[:symbol], on: :symbols)
+    end
   end
 
   def new
@@ -13,7 +19,8 @@ class DreamsController < ApplicationController
 
   def create
     @dream = Dream.new(dream_params)
-    @dream.user = User.first
+    @dream.user = current_user
+
     if @dream.save
       chat = RubyLLM.chat.with_schema(DreamInterpretationSchema).with_temperature(0.8)
       response = chat.ask(

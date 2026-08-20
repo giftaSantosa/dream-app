@@ -21,14 +21,63 @@ body {
   overflow: hidden;
 }
 
-.dream-title {
-  position: absolute;
+// .dream-add-button {
+//   position: absolute;
 
+//   top: 783px;
+//   left: 50%;
+
+//   width: 52px;
+//   height: 52px;
+
+//   border-radius: 50%;
+
+//   background-color: #203360;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+
+//   text-decoration: none;
+
+//   transform: translate(-50%, -50%) scale(0);
+//   opacity: 0;
+
+//   animation: circle-enter 0.3s ease-out 0.1s forwards;
+// }
+
+
+// .dream-add-button span {
+//   color: white;
+
+//   font-size: 20px;
+//   font-weight: 300;
+
+//   width: 10px;
+//   height: 10px;
+
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// @keyframes circle-enter {
+//   from {
+//     opacity: 0;
+//     transform: translate(-50%, -50%) scale(0);
+//   }
+
+//   to {
+//     opacity: 1;
+//     transform: translate(-50%, -50%) scale(1);
+//   }
+// }
+
+.dream-pre-title {
+  position: absolute;
   top: 291px;
   left: 50%;
-
   width: 100%;
-
   margin: 0;
 
   text-align: center;
@@ -37,9 +86,54 @@ body {
   transform: translate(-50%, -50px);
   opacity: 0;
 
-  animation: title-enter 1.2s ease-out forwards;
+  animation: pre-title-animation 2.5s ease-out forwards;
 }
 
+.dream-title {
+  position: absolute;
+  top: 291px;
+  left: 50%;
+  width: 100%;
+  margin: 0;
+
+  text-align: center;
+  color: white;
+
+  transform: translate(-50%, -50px);
+  opacity: 0;
+
+  animation: title-enter 1.2s ease-out 2.2s forwards;
+}
+
+
+/* Hello @user:
+   enter -> stay -> disappear */
+
+@keyframes pre-title-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50px);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+}
+
+
+/* What did you dream?
+   enter and stay */
 
 @keyframes title-enter {
   from {
@@ -50,65 +144,5 @@ body {
   to {
     opacity: 1;
     transform: translate(-50%, 0);
-  }
-}
-
-
-/* ---------------- */
-/* ADD BUTTON */
-/* ---------------- */
-
-.dream-add-button {
-  position: absolute;
-
-  top: 783px;
-  left: 50%;
-
-  width: 52px;
-  height: 52px;
-
-  border-radius: 50%;
-
-  background-color: #203360;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-decoration: none;
-
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-
-  animation: circle-enter 0.3s ease-out 0.1s forwards;
-}
-
-
-.dream-add-button span {
-  color: white;
-
-  font-size: 20px;
-  font-weight: 300;
-
-  width: 10px;
-  height: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/* Circle grows from its center */
-
-@keyframes circle-enter {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
   }
 }

@@ -1,115 +1,496 @@
 .signin-page {
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: black;
+}
+
+
+/* -----------------------------
+   HERO
+----------------------------- */
+
+.signin-hero {
+  position: relative;
+
+  height: 75dvh;
+  flex-shrink: 0;
+
+  background-image: url("nightsky.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+  transition:
+    height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.landing-copy {
+  position: absolute;
+
+  left: 40px;
+  right: 40px;
+  bottom: 55px;
+
+  color: white;
+
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.landing-title {
+  margin: 0 0 16px;
+
+  font-size: 36px;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+
+.landing-description {
+  max-width: 380px;
+
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+.landing-tagline {
+  margin: 18px 0 0;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* -----------------------------
+   PANEL
+----------------------------- */
+
+.signin-panel {
+  position: relative;
+
+  height: 25dvh;
+  flex-shrink: 0;
+
+  padding: 40px;
+  box-sizing: border-box;
+
+  border-radius: 32px 32px 0 0;
+
   background: linear-gradient(
     to bottom,
     #000000 0%,
     #543168 45%,
     #543168 80%,
-    #6A6262 100%
+    #553f62 100%
   );
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  transition:
+    height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+
+/* -----------------------------
+   GET STARTED
+----------------------------- */
+
+.signin-landing-content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease;
+
+  pointer-events: auto;
+}
+
+
+.get-started-button {
+  width: calc(100% - 80px);
+  max-width: 400px;
+  height: 50px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: white;
+  color: #3e006e;
+
+  font-weight: 600;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.get-started-button:hover {
+  background-color: #f2f2f2;
+
+  transform: translateY(-2px);
+}
+
+
+/* -----------------------------
+   SIGN IN FORM
+----------------------------- */
+
+.signin-form-content {
+  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto;
+  padding-bottom: 30px;
+
+  opacity: 0;
+  transform: translateY(35px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease 0.3s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
 
 .signin-title {
-  position: absolute;
+  margin: 0 0 24px;
+
   color: white;
-  top: 186px;
-  left: 40px;
-  margin: 0;
+
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.signin-email {
-  position: absolute;
-  top: 312px;
-  left: 40px;
-  right: 40px;
-  margin: 0;
+
+.signin-field {
+  margin-bottom: 14px;
 }
 
-.signin-password {
-  position: absolute;
-  top: 390px;
-  left: 40px;
-  right: 40px;
-  margin: 0;
-}
 
 .signin-input {
+  width: 100%;
   height: 45px;
+
   border-radius: 8px;
 }
 
-.signin-options {
-  position: absolute;
-  top: 455px;
-  left: 40px;
-  right: 40px;
-  color: rgba(255, 255, 255, 0.7);
 
+/* -----------------------------
+   REMEMBER / FORGOT
+----------------------------- */
+
+.signin-options {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  margin-top: 4px;
+  margin-bottom: 20px;
+
+  color: rgba(255, 255, 255, 0.7);
 }
+
 
 .signin-options .form-check {
   margin-bottom: 0;
 }
 
+
 .signin-forgot {
+  color: rgba(255, 255, 255, 0.65);
+
   text-decoration: none;
-  color: white;
-  font-size: 14px;
-  opacity: 65%;
+
+  font-size: 10px;
 }
+
 
 .signin-forgot:hover {
+  color: rgba(255, 255, 255, 0.8);
+
   text-decoration: underline;
-  opacity: 65%;
 }
 
+
+/* -----------------------------
+   LOGIN BUTTON
+----------------------------- */
+
 .signin-actions {
-  position: absolute;
-  top: 588px;
-  left: 40px;
-  right: 40px;
+  width: 100%;
 }
+
 
 .signin-button {
   width: 100%;
   height: 45px;
 
-  background-color: white;
-  color: #3E006E;
   border: none;
   border-radius: 8px;
 
+  background-color: white;
+  color: #3e006e;
+
   font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
+
 
 .signin-button:hover {
   background-color: #f2f2f2;
-  color: #3E006E;
+  color: #3e006e;
+
+  transform: translateY(-1px);
 }
 
+
+/* -----------------------------
+   GOOGLE LOGIN
+----------------------------- */
+
+.signup-omniauth {
+  width: 100%;
+
+  margin-top: 14px;
+}
+
+
+.signup-omniauth form {
+  width: 100%;
+}
+
+
+.signup-omniauth-button {
+  width: 100%;
+  height: 45px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+
+  background-color: transparent;
+  color: white;
+
+  font-weight: 500;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.signup-omniauth-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* -----------------------------
+   SIGN UP LINK
+----------------------------- */
+
 .signin-signup {
-  position: absolute;
-  top: 720px;
-  left: 40px;
-  right: 40px;
+  margin-top: 18px;
+
   color: white;
 
   text-align: center;
   font-size: 14px;
 }
 
+
 .signin-signup-link {
-  color: white;
+  color: rgba(255, 255, 255, 0.75);
+
   font-weight: 600;
+
   text-decoration: none;
-  opacity: 75%;
 }
 
+
 .signin-signup-link:hover {
+  color: white;
+
   text-decoration: underline;
+}
+
+
+/* -----------------------------
+   OPEN STATE
+----------------------------- */
+
+.signin-page.signin-open .signin-hero {
+  height: 45dvh;
+}
+
+
+.signin-page.signin-open .signin-panel {
+  height: 55dvh;
+}
+
+
+.signin-page.signin-open .signin-landing-content {
+  opacity: 0;
+
+  transform: translateY(-20px);
+
+  pointer-events: none;
+}
+
+
+.signin-page.signin-open .signin-form-content {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+.signin-page.signin-open .landing-copy {
+  opacity: 0;
+
+  transform: translateY(-35px);
+
+  pointer-events: none;
+}
+
+
+/* -----------------------------
+   SMALL PHONES
+----------------------------- */
+
+@media (max-height: 700px) {
+
+  .signin-panel {
+    padding: 28px 30px;
+  }
+
+  .signin-page.signin-open .signin-hero {
+    height: 10dvh;
+  }
+
+  .signin-page.signin-open .signin-panel {
+    height: 90dvh;
+  }
+
+  .signin-title {
+    margin-bottom: 18px;
+  }
+
+  .signin-field {
+    margin-bottom: 10px;
+  }
+
+  .signin-options {
+    margin-bottom: 16px;
+  }
+
+  .signup-omniauth {
+    margin-top: 12px;
+  }
+
+  .signin-signup {
+    margin-top: 14px;
+  }
+}
+/* -----------------------------
+   GOOGLE LOGIN FIX
+----------------------------- */
+
+.signup-omniauth {
+  position: static !important;
+
+  width: 100%;
+  margin-top: 14px;
+}
+
+.signup-omniauth form {
+  position: static !important;
+
+  width: 100%;
+  margin: 0;
+
+  display: block;
+
+  transform: none !important;
+}
+
+.signup-omniauth-button {
+  position: static !important;
+
+  width: 100%;
+  height: 45px;
+
+  margin: 0;
+
+  background-color: transparent;
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+
+  font-weight: 500;
+
+  transform: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.signup-omniauth-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* SIGN UP */
+
+.signin-signup {
+  position: static !important;
+
+  margin-top: 18px;
+
+  color: white;
+
+  text-align: center;
+  font-size: 14px;
 }

@@ -1,69 +1,72 @@
-<%= turbo_stream_from @dream %>
+<div class="app-container">
 
-<div class="dream-show-wrapper">
-  <div class="dream-card">
+  <%= turbo_stream_from @dream %>
 
-    <%# Safe Header %>
-    <div class="dream-header">
-      <h3 class="dream-show-title">
-        <%= @dream.title.presence || "Untitled Dream" %>
-        <% if @dream.mood.present? %>
-          <span class="dream-mood"><%= @dream.mood %></span>
-        <% end %>
-      </h3>
+  <div class="dream-show-wrapper">
+    <div class="dream-card">
 
-    </div>
+      <%# Safe Header %>
+      <div class="dream-header">
+        <h3 class="dream-show-title">
+          <%= @dream.title.presence || "Untitled Dream" %>
+          <% if @dream.mood.present? %>
+            <span class="dream-mood"><%= @dream.mood %></span>
+          <% end %>
+        </h3>
 
-    <%# Safe Date %>
-    <% if @dream.respond_to?(:date) && @dream.date.present? %>
-      <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
-    <% elsif @dream.created_at.present? %>
-      <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
-    <% end %>
-
-    <div class="dream-body text-wrap">
-      <p class="dream-input"><%= @dream.input %></p>
-      <div id="<%= dom_id(@dream) %>">
-        <%= render "shared/show_image", dream: @dream %>
       </div>
-    </div>
 
+      <%# Safe Date %>
+      <% if @dream.respond_to?(:date) && @dream.date.present? %>
+        <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
+      <% elsif @dream.created_at.present? %>
+        <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
+      <% end %>
 
-
-
-    <% if @dream.try(:interpretation).present? %>
-      <div class="dream-interpretation">
-        <% if @dream.try(:summary).present? %>
-          <p class="dream-summary"><%= @dream.summary %></p>
-        <% end %>
-
-        <div class="dream-tags-container">
-
-          <% if @dream.respond_to?(:theme_list) && @dream.theme_list.present? %>
-            <div class="dream-tag-group dream-themes">
-              <% @dream.theme_list.each do |theme| %>
-                <%= link_to theme,
-                    dreams_path(theme: theme),
-                    class: "dream-tag dream-theme-tag" %>
-              <% end %>
-            </div>
-          <% end %>
-
-          <% if @dream.respond_to?(:symbol_list) && @dream.symbol_list.present? %>
-            <div class="dream-tag-group dream-symbols">
-              <% @dream.symbol_list.each do |symbol| %>
-                <%= link_to symbol,
-                    dreams_path(symbol: symbol),
-                    class: "dream-tag dream-symbol-tag" %>
-              <% end %>
-            </div>
-          <% end %>
-
-</div>
+      <div class="dream-body text-wrap">
+        <p class="dream-input"><%= @dream.input %></p>
+        <div id="<%= dom_id(@dream) %>">
+          <%= render "shared/show_image", dream: @dream %>
         </div>
       </div>
-    <% end %>
 
 
+
+
+      <% if @dream.try(:interpretation).present? %>
+        <div class="dream-interpretation">
+          <% if @dream.try(:summary).present? %>
+            <p class="dream-summary"><%= @dream.summary %></p>
+          <% end %>
+
+          <div class="dream-tags-container">
+
+            <% if @dream.respond_to?(:theme_list) && @dream.theme_list.present? %>
+              <div class="dream-tag-group dream-themes">
+                <% @dream.theme_list.each do |theme| %>
+                  <%= link_to theme,
+                      dreams_path(theme: theme),
+                      class: "dream-tag dream-theme-tag" %>
+                <% end %>
+              </div>
+            <% end %>
+
+            <% if @dream.respond_to?(:symbol_list) && @dream.symbol_list.present? %>
+              <div class="dream-tag-group dream-symbols">
+                <% @dream.symbol_list.each do |symbol| %>
+                  <%= link_to symbol,
+                      dreams_path(symbol: symbol),
+                      class: "dream-tag dream-symbol-tag" %>
+                <% end %>
+              </div>
+            <% end %>
+
+  </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
   </div>
 </div>

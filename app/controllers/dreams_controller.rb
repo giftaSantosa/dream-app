@@ -37,7 +37,8 @@ class DreamsController < ApplicationController
       end
       @dream.save
 
-      generate_dream_image(@dream, result)
+      # generate_dream_image(@dream, result)
+      ImageGenerationJob.perform_later(@dream, result)
 
       redirect_to dream_path(@dream)
 

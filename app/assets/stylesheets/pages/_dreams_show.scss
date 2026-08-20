@@ -29,6 +29,7 @@
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
+  position: relative;
 
   // &:hover {
   //   background-color: rgba(255, 255, 255, 0.22);
@@ -51,6 +52,7 @@
         font-weight: 400;
         color: #b0bec5;
         margin-left: 6px;
+
       }
     }
 

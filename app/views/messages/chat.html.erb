@@ -1,14 +1,15 @@
-<div class="container" >
+<div class="dream-chat-page">
 
-  <h1 class="my-5"><%= @dream.title %> Dream Chat </h1>
+  <h1 class="dream-chat-title">
+    <%= @dream.title %> Dream Chat
+  </h1>
 
-  <div id="messages">
-    <%# messages here %>
+  <div id="messages" class="chat-messages">
     <%= render "messages/messages", messages: @messages %>
   </div>
 
-  <div id="chat-input" class="fixed-bottom mx-3">
-    <%# chat input here %>
+  <div id="chat-input" class="chat-input-wrapper">
     <%= render "messages/chat_input", dream: @dream, message: @message %>
   </div>
+
 </div>

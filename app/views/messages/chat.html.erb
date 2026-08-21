@@ -1,15 +1,19 @@
-<div class="dream-chat-page">
+<div class="app-container">
 
-  <h1 class="dream-chat-title">
-    <%= @dream.title %> Dream Chat
-  </h1>
+  <div class="dream-chat-page">
 
-  <div id="messages" class="chat-messages">
-    <%= render "messages/messages", messages: @messages %>
+    <h1 class="dream-chat-title">
+      <%= @dream.title %> Dream Chat
+    </h1>
+
+    <div id="messages" class="chat-messages">
+      <%= render "messages/messages", messages: @messages %>
+    </div>
+
+    <div id="chat-input" class="chat-input-wrapper">
+      <%= render "messages/chat_input", dream: @dream, message: @message %>
+    </div>
+
   </div>
 
-  <div id="chat-input" class="chat-input-wrapper">
-    <%= render "messages/chat_input", dream: @dream, message: @message %>
-  </div>
-
-</div>
+<div>

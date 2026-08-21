@@ -2,32 +2,39 @@
   <%= simple_form_for @dream do |f| %>
     <h1 class="dream-form-title">What did you dream?</h1>
 
-    <%= f.input :date,
-                label: false,
-                collection: (0..30).map { |i|
-                  date = Date.yesterday - i.days
-                  [date.strftime("%B %d, %Y"), date]
-                },
-                selected: (@dream.date || Date.yesterday),
-                input_html: {
-                  class: "dream-date-select"
-                } %>
+      <h1 class="dream-form-title">What did you dream?</h1>
 
-    <div class="dream-mood-wrapper">
-      <span class="dream-mood-label">Mood:</span>
-
-      <%= f.input :mood,
+      <%= f.input :date,
                   label: false,
-                  wrapper_html: { class: "dream-mood-input-wrapper" },
+                  collection: (0..30).map { |i|
+                    date = Date.yesterday - i.days
+                    [date.strftime("%B %d, %Y"), date]
+                  },
+                  selected: (@dream.date || Date.yesterday),
                   input_html: {
                     class: "dream-mood",
                     placeholder: "How did you feel?"
                   } %>
-    </div>
 
-    <%= f.input :input,
+      <div class="dream-mood-wrapper">
+        <span class="dream-mood-label">Mood:</span>
+
+        <%= f.input :mood,
+                    label: false,
+                    wrapper_html: { class: "dream-mood-input-wrapper" },
+                    input_html: {
+                      class: "dream-mood",
+                      placeholder: "How did you feel?",
+
+                    } %>
+      </div>
+
+        <%= f.input :input,
+                as: :text,
                 label: false,
-                wrapper_html: { class: "dream-input-wrapper" },
+                wrapper_html: {
+                  class: "dream-input-wrapper"
+                },
                 input_html: {
                   class: "dream-input",
                   placeholder: "Tell me about your dream",

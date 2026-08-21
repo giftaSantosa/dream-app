@@ -14,16 +14,18 @@
             </div>
           </div>
 
-          <div class="dream-card-index-content">
-            <div class="dream-index-title">
-              <%= dream.title %>
+              <div class="dream-day">
+                <%= dream.date.strftime("%d") %>
+              </div>
             </div>
             <div class="dream-mood">
               <%= dream.mood %>
             </div>
+
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
+
 </div>

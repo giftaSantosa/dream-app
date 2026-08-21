@@ -20,6 +20,11 @@ class MessagesController < ApplicationController
 
   def chat
     @message = Message.new
+    Message.create(
+      content: "The meaning of your dream was #{@dream.interpretation['summary']}\nHow can I help you?",
+      role: "assistant",
+      dream: @dream
+    )
     @messages = @dream.messages.order(:created_at)
   end
 
@@ -40,8 +45,7 @@ class MessagesController < ApplicationController
     @dream.messages.each do |message|
       chat.add_message(role: message.role, content: message.content)
     end
-
-    chat.with_instructions("#{PROMPT}. This is the interpreted dream #{INPTERPRETED_DREAM}")
+    chat.with_instructions("#{PROMPT}. This is the interpreted dream #{@dream.interpretation['summary']}")
     response = chat.ask(@message.content)
 
     @ai_message = Message.new(

@@ -1,83 +1,87 @@
-<div class="edit-page">
+<div class="app-container">
 
-  <h2 class="edit-title">Edit account</h2>
+  <div class="edit-page">
 
-  <%= simple_form_for(resource,
-                      as: resource_name,
-                      url: registration_path(resource_name),
-                      html: { method: :put }) do |f| %>
+    <h2 class="edit-title">Edit account</h2>
 
-    <%= f.error_notification %>
+    <%= simple_form_for(resource,
+                        as: resource_name,
+                        url: registration_path(resource_name),
+                        html: { method: :put }) do |f| %>
 
-    <%= f.input :email,
-                label: false,
-                required: true,
-                autofocus: true,
-                placeholder: "Email",
-                wrapper_html: { class: "edit-email" },
-                input_html: {
-                  autocomplete: "email",
-                  class: "edit-input"
-                } %>
+      <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p class="edit-confirmation">
-        Currently waiting confirmation for:
-        <%= resource.unconfirmed_email %>
-      </p>
+      <%= f.input :email,
+                  label: false,
+                  required: true,
+                  autofocus: true,
+                  placeholder: "Email",
+                  wrapper_html: { class: "edit-email" },
+                  input_html: {
+                    autocomplete: "email",
+                    class: "edit-input"
+                  } %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p class="edit-confirmation">
+          Currently waiting confirmation for:
+          <%= resource.unconfirmed_email %>
+        </p>
+      <% end %>
+
+      <%= f.input :password,
+                  label: false,
+                  required: false,
+                  placeholder: "New password",
+                  hint: false,
+                  wrapper_html: { class: "edit-password" },
+                  input_html: {
+                    autocomplete: "new-password",
+                    class: "edit-input"
+                  } %>
+
+      <%= f.input :password_confirmation,
+                  label: false,
+                  required: false,
+                  placeholder: "Confirm new password",
+                  wrapper_html: { class: "edit-password-confirmation" },
+                  input_html: {
+                    autocomplete: "new-password",
+                    class: "edit-input"
+                  } %>
+
+      <%= f.input :current_password,
+                  label: false,
+                  required: true,
+                  placeholder: "Current password",
+                  hint: false,
+                  wrapper_html: { class: "edit-current-password" },
+                  input_html: {
+                    autocomplete: "current-password",
+                    class: "edit-input"
+                  } %>
+
+      <div class="edit-actions">
+        <%= f.button :submit, "Update", class: "edit-button" %>
+      </div>
+
     <% end %>
 
-    <%= f.input :password,
-                label: false,
-                required: false,
-                placeholder: "New password",
-                hint: false,
-                wrapper_html: { class: "edit-password" },
-                input_html: {
-                  autocomplete: "new-password",
-                  class: "edit-input"
-                } %>
-
-    <%= f.input :password_confirmation,
-                label: false,
-                required: false,
-                placeholder: "Confirm new password",
-                wrapper_html: { class: "edit-password-confirmation" },
-                input_html: {
-                  autocomplete: "new-password",
-                  class: "edit-input"
-                } %>
-
-    <%= f.input :current_password,
-                label: false,
-                required: true,
-                placeholder: "Current password",
-                hint: false,
-                wrapper_html: { class: "edit-current-password" },
-                input_html: {
-                  autocomplete: "current-password",
-                  class: "edit-input"
-                } %>
-
-    <div class="edit-actions">
-      <%= f.button :submit, "Update", class: "edit-button" %>
+    <div class="edit-cancel">
+      <%= button_to "Cancel my account",
+            registration_path(resource_name),
+            data: {
+              confirm: "Are you sure?",
+              turbo_confirm: "Are you sure?"
+            },
+            method: :delete,
+            class: "edit-cancel-button" %>
     </div>
 
-  <% end %>
+    <div class="edit-back">
+      <%= link_to "Back", :back, class: "edit-back-link" %>
+    </div>
 
-  <div class="edit-cancel">
-    <%= button_to "Cancel my account",
-          registration_path(resource_name),
-          data: {
-            confirm: "Are you sure?",
-            turbo_confirm: "Are you sure?"
-          },
-          method: :delete,
-          class: "edit-cancel-button" %>
-  </div>
-
-  <div class="edit-back">
-    <%= link_to "Back", :back, class: "edit-back-link" %>
   </div>
 
 </div>

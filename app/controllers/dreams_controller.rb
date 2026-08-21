@@ -1,8 +1,8 @@
 class DreamsController < ApplicationController
-  # skip_before_action :authenticate_user!
   PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation.
   You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise
   (max 5 sentences) and end with a brief practical recommendation."
+
   def index
     @dreams = current_user.dreams
 
@@ -27,6 +27,7 @@ class DreamsController < ApplicationController
         "Interpret this dream: #{@dream.input}. The dreamer's mood was #{@dream.mood}. Considering you're #{PROMPT}"
       )
       result = response.content
+
       @dream.update!(
         title: result["dream_title"],
         interpretation: {
@@ -35,6 +36,7 @@ class DreamsController < ApplicationController
           dream_symbols: result["dream_symbols"]
         }
       )
+
       @dream.dream_themes.each do |theme|
         @dream.theme_list.add(theme)
       end
@@ -42,13 +44,11 @@ class DreamsController < ApplicationController
       @dream.dream_symbols.each do |symbol|
         @dream.symbol_list.add(symbol)
       end
-      @dream.save
 
-      # generate_dream_image(@dream, result)
+      @dream.save
       ImageGenerationJob.perform_later(@dream, result)
 
       redirect_to dream_path(@dream)
-
     else
       render :new, status: :unprocessable_entity
     end
@@ -80,6 +80,5 @@ class DreamsController < ApplicationController
     )
   rescue RubyLLM::Error => e
     Rails.logger.error("Image generation failed for Dream ##{dream.id}: #{e.message}")
-    # swallow the error so a failed image doesn't block the redirect
   end
 end

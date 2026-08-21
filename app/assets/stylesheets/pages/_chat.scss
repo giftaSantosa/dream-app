@@ -1,51 +1,25 @@
-/* =========================
-   CHAT PAGE
-========================= */
-
 .dream-chat-page {
   min-height: 100dvh;
   width: 100%;
-
   background: #161E2D;
-
   padding: 24px 16px 110px;
-
   display: flex;
   flex-direction: column;
 }
 
-
-/* =========================
-   TITLE
-========================= */
-
 .dream-chat-title {
   color: white;
-
   font-size: 1.5rem;
   font-weight: 600;
-
   margin: 20px 0 32px;
 }
-
-
-/* =========================
-   MESSAGE AREA
-========================= */
 
 .chat-messages {
   display: flex;
   flex-direction: column;
-
   gap: 10px;
-
   width: 100%;
 }
-
-
-/* =========================
-   MESSAGE ROW
-========================= */
 
 .message-row {
   display: flex;
@@ -60,108 +34,62 @@
   justify-content: flex-start;
 }
 
-
-/* =========================
-   CHAT BUBBLES
-========================= */
-
 .chat-bubble {
   width: fit-content;
   max-width: 78%;
-
   padding: 10px 14px;
-
   border-radius: 18px;
-
   font-size: 0.95rem;
   line-height: 1.4;
-
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
-
-/* USER */
-
 .user-bubble {
   background: #ECECEC;
   color: #161E2D;
-
   border-bottom-right-radius: 6px;
 }
-
-
-/* ASSISTANT */
 
 .assistant-bubble {
   background: #9DB4C0;
   color: #161E2D;
-
   border-bottom-left-radius: 6px;
 }
 
-
-/* =========================
-   CHAT INPUT
-========================= */
-
 .chat-input-wrapper {
   position: fixed;
-
   bottom: 0;
   left: 0;
   right: 0;
-
-  padding: 12px 16px 20px;
-
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px calc(20px + env(safe-area-inset-bottom));
   background: #161E2D;
-
   z-index: 10;
 }
 
-
-/* =========================
-   INPUT CONTAINER
-========================= */
-
 .chat-form {
   position: relative;
-
   width: 100%;
   max-width: 600px;
-
   margin: 0 auto;
 }
-
-
-/* Remove Simple Form spacing */
 
 .chat-input-field {
   margin-bottom: 0 !important;
 }
 
-
-/* =========================
-   TEXTAREA
-========================= */
-
 .chat-textarea {
   width: 100%;
-
   min-height: 54px;
   max-height: 140px;
-
   padding: 15px 58px 15px 18px;
-
   border: none !important;
   border-radius: 27px !important;
-
   background: #ECECEC !important;
-
   color: #161E2D;
-
   resize: none;
-
   box-shadow: none !important;
   outline: none !important;
 }
@@ -170,54 +98,33 @@
   color: rgba(22, 30, 45, 0.55);
 }
 
-
-/* Focus */
-
 .chat-textarea:focus {
   background: #ECECEC !important;
-
   border: none !important;
   box-shadow: none !important;
 }
 
-
-/* =========================
-   SEND BUTTON
-========================= */
-
 .chat-send-button {
   position: absolute;
-
   right: 5px;
   bottom: 5px;
-
   width: 44px;
   height: 44px;
-
   border: none;
   border-radius: 50%;
-
   background: #543168;
   color: white;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   font-size: 1rem;
-
-  transition:
-    transform 0.15s ease,
-    opacity 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
-
 
 .chat-send-button:hover {
   transform: scale(1.05);
 }
-
 
 .chat-send-button:active {
   transform: scale(0.95);

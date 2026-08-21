@@ -6,19 +6,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Dream App">
     <meta name="mobile-web-app-capable" content="yes">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -27,16 +23,20 @@
     <div>
       <div>
         <%= render "shared/flashes" %>
-        <%= render "shared/menu" %>
+
+        <% if user_signed_in? %>
+          <%= render "shared/menu" %>
+        <% end %>
+
         <%= yield %>
       </div>
+
       <% if controller_name == "dreams" && action_name == "show" %>
         <%= render "shared/navbar_chat" %>
       <% elsif controller_name == "pages" && action_name == "home" %>
         <%= render "shared/navbar_add" %>
       <% elsif controller_name == "dreams" && action_name == "index" %>
         <%= render "shared/navbar_add" %>
-      <% else %>
       <% end %>
     </div>
   </body>

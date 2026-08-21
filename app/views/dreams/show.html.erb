@@ -13,13 +13,14 @@
             <span class="dream-mood"><%= @dream.mood %></span>
           <% end %>
         </h3>
+      </div>
 
-    <%# Safe Date %>
-    <% if @dream.respond_to?(:date) && @dream.date.present? %>
-      <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
-    <% elsif @dream.created_at.present? %>
-      <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
-    <% end %>
+      <%# Safe Date %>
+      <% if @dream.respond_to?(:date) && @dream.date.present? %>
+        <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
+      <% elsif @dream.created_at.present? %>
+        <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
+      <% end %>
 
     <div class="dream-body text-wrap">
       <p class="dream-input"><%= @dream.input %></p>
@@ -33,23 +34,6 @@
           data-typed-text-type-speed-value="80"></span>
         <% end %>
       </div>
-
-      <%# Safe Date %>
-      <% if @dream.respond_to?(:date) && @dream.date.present? %>
-        <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
-      <% elsif @dream.created_at.present? %>
-        <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
-      <% end %>
-
-      <div class="dream-body text-wrap">
-        <p class="dream-input"><%= @dream.input %></p>
-        <div id="<%= dom_id(@dream) %>">
-          <%= render "shared/show_image", dream: @dream %>
-        </div>
-      </div>
-
-
-
 
       <% if @dream.try(:interpretation).present? %>
         <div class="dream-interpretation">

@@ -1,26 +1,21 @@
 .signin-page {
   width: 100%;
-  min-height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  height: 100svh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-
   background-color: black;
 }
 
 .signin-hero {
   position: relative;
-
-  flex: 3;
-  min-height: 0;
-
+  height: 75%;
+  flex-shrink: 0;
   background-image: url("nightsky.png");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-
-  transition: flex 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .landing-copy {
@@ -31,7 +26,9 @@
   color: white;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 0.35s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .landing-title {
@@ -58,13 +55,11 @@
 
 .signin-panel {
   position: relative;
-
-  flex: 1;
-  min-height: 0;
-
+  height: 25%;
+  flex-shrink: 0;
   padding: 40px;
   box-sizing: border-box;
-
+  border-radius: 32px 32px 0 0;
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -72,10 +67,8 @@
     #543168 80%,
     #553f62 100%
   );
-  overflow-y: hidden;
-  overflow-x: hidden;
-
-  transition: flex 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .signin-landing-content {
@@ -86,7 +79,9 @@
   justify-content: center;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.4s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease;
   pointer-events: auto;
 }
 
@@ -101,7 +96,9 @@
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .get-started-button:hover {
@@ -113,11 +110,13 @@
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  padding-bottom: 30px;
+  padding-bottom: 0;
   opacity: 0;
   transform: translateY(35px);
   pointer-events: none;
-  transition: opacity 0.4s ease 0.3s, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+  transition:
+    opacity 0.4s ease 0.3s,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
 }
 
 .signin-title {
@@ -173,7 +172,9 @@
   background-color: white;
   color: #3e006e;
   font-weight: 600;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .signin-button:hover {
@@ -207,7 +208,9 @@
   border-radius: 8px;
   font-weight: 500;
   transform: none !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .signup-omniauth-button:hover {
@@ -235,11 +238,11 @@
 }
 
 .signin-page.signin-open .signin-hero {
-  flex: 45;
+  height: 45%;
 }
 
 .signin-page.signin-open .signin-panel {
-  flex: 55;
+  height: 55%;
 }
 
 .signin-page.signin-open .signin-landing-content {
@@ -265,12 +268,12 @@
     padding: 28px 30px;
   }
 
-   .signin-page.signin-open .signin-hero {
-    flex: 10;
+  .signin-page.signin-open .signin-hero {
+    height: 10%;
   }
 
   .signin-page.signin-open .signin-panel {
-    flex: 90;
+    height: 90%;
   }
 
   .signin-title {

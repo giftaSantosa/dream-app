@@ -9,16 +9,15 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.dream = @dream
     @message.role = "user"
+
     if @message.save
       get_llm_response
-      # redirect_to chat_dream_path(@dream)
     else
       @messages = @dream.messages.order(:created_at)
       render "chat", status: :unprocessable_entity
     end
   end
 
-  # /dreams/:id/chat
   def chat
     @message = Message.new
     @messages = @dream.messages.order(:created_at)
@@ -37,16 +36,20 @@ class MessagesController < ApplicationController
 
   def get_llm_response
     chat = RubyLLM.chat.with_temperature(0.8)
+
     @dream.messages.each do |message|
       chat.add_message(role: message.role, content: message.content)
     end
+
     chat.with_instructions("#{PROMPT}. This is the interpreted dream #{INPTERPRETED_DREAM}")
     response = chat.ask(@message.content)
+
     @ai_message = Message.new(
       content: response.content,
       role: "assistant",
       dream: @dream
     )
+
     @ai_message.save
   end
 end

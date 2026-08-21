@@ -1,19 +1,14 @@
 <div class="index-background min-vh-100 py-4">
   <div class="dream-history-container">
-
     <h2 class="mb-4 text-center text-white">Dream History</h2>
 
     <% @dreams.each do |dream| %>
-
       <%= link_to dream_path(dream), class: "dream-history-link" do %>
-
         <div class="dream-history-card">
-
           <div class="dream-calendar">
             <div class="dream-month">
               <%= dream.date.strftime("%b").upcase %>
             </div>
-
             <div class="dream-day">
               <%= dream.date.strftime("%d") %>
             </div>
@@ -23,17 +18,12 @@
             <div class="dream-index-title">
               <%= dream.title %>
             </div>
-
             <div class="dream-mood">
               <%= dream.mood %>
             </div>
           </div>
-
         </div>
-
       <% end %>
-
     <% end %>
-
   </div>
 </div>

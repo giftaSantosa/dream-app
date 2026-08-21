@@ -1,6 +1,5 @@
 <div class="dream-form-page">
   <%= simple_form_for @dream do |f| %>
-
     <h1 class="dream-form-title">What did you dream?</h1>
 
     <%= f.input :date,
@@ -22,8 +21,7 @@
                   wrapper_html: { class: "dream-mood-input-wrapper" },
                   input_html: {
                     class: "dream-mood",
-                    placeholder: "How did you feel?",
-
+                    placeholder: "How did you feel?"
                   } %>
     </div>
 
@@ -39,10 +37,9 @@
     <nav class="navbar navbar-dream container-fluid fixed-bottom">
       <ul class="navbar-nav mx-auto">
         <%= f.button :button, type: "submit", class: "btn rounded-circle navbar-dream container-fluid", aria: { label: "Add" }, style: "width: 52px; height: 52px; background: #343a5c;" do %>
-            <i class="fa-solid fa-arrow-up text-white"></i>
+          <i class="fa-solid fa-arrow-up text-white"></i>
         <% end %>
       </ul>
     </nav>
-
+  <% end %>
 </div>
-<% end %>

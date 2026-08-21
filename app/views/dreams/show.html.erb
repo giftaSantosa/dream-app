@@ -2,8 +2,6 @@
 
 <div class="dream-show-wrapper">
   <div class="dream-card">
-
-    <%# Safe Header %>
     <div class="dream-header">
       <h3 class="dream-show-title">
         <%= @dream.title.presence || "Untitled Dream" %>
@@ -11,10 +9,8 @@
           <span class="dream-mood"><%= @dream.mood %></span>
         <% end %>
       </h3>
-
     </div>
 
-    <%# Safe Date %>
     <% if @dream.respond_to?(:date) && @dream.date.present? %>
       <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
     <% elsif @dream.created_at.present? %>
@@ -23,13 +19,11 @@
 
     <div class="dream-body text-wrap">
       <p class="dream-input"><%= @dream.input %></p>
+
       <div id="<%= dom_id(@dream) %>">
         <%= render "shared/show_image", dream: @dream %>
       </div>
     </div>
-
-
-
 
     <% if @dream.try(:interpretation).present? %>
       <div class="dream-interpretation">
@@ -38,13 +32,12 @@
         <% end %>
 
         <div class="dream-tags-container">
-
           <% if @dream.respond_to?(:theme_list) && @dream.theme_list.present? %>
             <div class="dream-tag-group dream-themes">
               <% @dream.theme_list.each do |theme| %>
                 <%= link_to theme,
-                    dreams_path(theme: theme),
-                    class: "dream-tag dream-theme-tag" %>
+                            dreams_path(theme: theme),
+                            class: "dream-tag dream-theme-tag" %>
               <% end %>
             </div>
           <% end %>
@@ -53,17 +46,13 @@
             <div class="dream-tag-group dream-symbols">
               <% @dream.symbol_list.each do |symbol| %>
                 <%= link_to symbol,
-                    dreams_path(symbol: symbol),
-                    class: "dream-tag dream-symbol-tag" %>
+                            dreams_path(symbol: symbol),
+                            class: "dream-tag dream-symbol-tag" %>
               <% end %>
             </div>
           <% end %>
-
-</div>
         </div>
       </div>
     <% end %>
-
-
   </div>
 </div>

@@ -44,6 +44,10 @@ body {
   animation: title-enter 1.2s ease-out 2.2s forwards;
 }
 
+h1 {
+  font-size: 45px;
+}
+
 @keyframes pre-title-animation {
   0% {
     opacity: 0;

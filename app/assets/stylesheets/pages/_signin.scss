@@ -9,7 +9,7 @@
 
 .signin-hero {
   position: relative;
-  height: 75%;
+  height: 100%;
   flex-shrink: 0;
   background-image: url("nightsky.png");
   background-size: cover;
@@ -55,9 +55,11 @@
 
 .signin-panel {
   position: relative;
-  height: 25%;
+  height: calc(25% + env(safe-area-inset-bottom));
+  margin-bottom: calc(env(safe-area-inset-bottom) * -1);
   flex-shrink: 0;
   padding: 40px;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
   box-sizing: border-box;
   border-radius: 32px 32px 0 0;
   background: linear-gradient(
@@ -68,7 +70,6 @@
     #553f62 100%
   );
   overflow: hidden;
-  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .signin-landing-content {
@@ -107,6 +108,7 @@
 }
 
 .signin-form-content {
+  overflow: hidden;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
@@ -238,11 +240,11 @@
 }
 
 .signin-page.signin-open .signin-hero {
-  height: 45%;
+  height: 50%;
 }
 
 .signin-page.signin-open .signin-panel {
-  height: 55%;
+  height: calc(70% + env(safe-area-inset-bottom));
 }
 
 .signin-page.signin-open .signin-landing-content {

@@ -79,3 +79,6 @@ gem "acts-as-taggable-on"
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem "cloudinary"
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"

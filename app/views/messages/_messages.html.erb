@@ -4,7 +4,7 @@
 
     <div class="message-row user-row" data-controller="scroll-up">
       <div class="chat-bubble user-bubble">
-        <%= message.content %>
+        <%= raw(render_markdown(message.content)) %>
       </div>
     </div>
 
@@ -12,7 +12,7 @@
 
     <div class="message-row assistant-row">
       <div class="chat-bubble assistant-bubble">
-        <%= message.content %>
+        <%= raw(render_markdown(message.content)) %>
       </div>
     </div>
 

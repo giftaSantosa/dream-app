@@ -1,9 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_dream
 
-  PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation. You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise (max 3 sentences) and end with a brief practical recommendation (if given a dream)."
-
-  INPTERPRETED_DREAM = "You are stressed, you need to take longer hours in your dream"
+  PROMPT = "You are an experienced dream analyzer who combines mystical and scientific interpretation. You will receive an interpreted dream and answer follow-up questions about it. Keep responses concise (max 3 sentences) and end with a brief practical recommendation (if given a dream). Please answer as a markdown"
 
   def create
     @message = Message.new(message_params)
@@ -22,7 +20,7 @@ class MessagesController < ApplicationController
   def chat
     @message = Message.new
     Message.create(
-      content: "The meaning of your dream was #{@dream.interpretation['summary']}\nHow can I help you?",
+      content: "*#{@dream.interpretation['summary']}*\n**Curious about anything else this dream might mean?**",
       role: "assistant",
       dream: @dream
     )

@@ -61,7 +61,7 @@
   padding: 40px;
   padding-bottom: calc(40px + env(safe-area-inset-bottom));
   box-sizing: border-box;
-  border-radius: 32px 32px 0 0;
+  border-radius: 0;
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -271,11 +271,11 @@
   }
 
   .signin-page.signin-open .signin-hero {
-    height: 10%;
+    height: 35%;
   }
 
   .signin-page.signin-open .signin-panel {
-    height: 90%;
+    height: 65%;
   }
 
   .signin-title {

@@ -29,8 +29,8 @@
           <%= render "shared/show_image", dream: @dream %>
         <% else %>
           <i class="fa-solid fa-circle-notch fa-spin"></i>
-          <span data-controller="typed-text"
-          data-typed-text-strings-value='["Consulting a sleep-deprived oracle...", "Asking your subconscious to explain itself... ", "Negotiating with the dream butcher...", "Adding an inexplicable amount of drama...", "Pretending this all makes sense...", "Almost there......", "Just a little bit more.......", "A tiny tiny tiny bit more......."]'
+          <span id="spinner" data-controller="typed-text"
+          data-typed-text-strings-value='["Consulting a sleep-deprived magician...", "Asking your subconscious to explain itself... ", "Negotiating with the dream butcher...", "Adding an inexplicable amount of drama...", "Pretending this all makes sense...", "Almost there......", "Just a little bit more.......", "A tiny tiny tiny bit more......."]'
           data-typed-text-type-speed-value="80"></span>
         <% end %>
       </div>

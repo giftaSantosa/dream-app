@@ -1,22 +1,26 @@
 .signin-page {
   width: 100%;
-  min-height: 100dvh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 100dvh;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
+
   background-color: black;
 }
 
 .signin-hero {
   position: relative;
-  height: 75dvh;
-  flex-shrink: 0;
+
+  flex: 3;
+  min-height: 0;
+
   background-image: url("nightsky.png");
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
-  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition: flex 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .landing-copy {
@@ -54,11 +58,13 @@
 
 .signin-panel {
   position: relative;
-  height: 25dvh;
-  flex-shrink: 0;
+
+  flex: 1;
+  min-height: 0;
+
   padding: 40px;
   box-sizing: border-box;
-  border-radius: 32px 32px 0 0;
+
   background: linear-gradient(
     to bottom,
     #000000 0%,
@@ -66,9 +72,11 @@
     #543168 80%,
     #553f62 100%
   );
+
   overflow-y: auto;
   overflow-x: hidden;
-  transition: height 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition: flex 0.75s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .signin-landing-content {
@@ -228,11 +236,11 @@
 }
 
 .signin-page.signin-open .signin-hero {
-  height: 45dvh;
+  flex: 45;
 }
 
 .signin-page.signin-open .signin-panel {
-  height: 55dvh;
+  flex: 55;
 }
 
 .signin-page.signin-open .signin-landing-content {
@@ -258,12 +266,12 @@
     padding: 28px 30px;
   }
 
-  .signin-page.signin-open .signin-hero {
-    height: 10dvh;
+   .signin-page.signin-open .signin-hero {
+    flex: 10;
   }
 
   .signin-page.signin-open .signin-panel {
-    height: 90dvh;
+    flex: 90;
   }
 
   .signin-title {

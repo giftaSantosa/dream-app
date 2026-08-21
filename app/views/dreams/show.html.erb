@@ -13,25 +13,6 @@
             <span class="dream-mood"><%= @dream.mood %></span>
           <% end %>
         </h3>
-
-    <%# Safe Date %>
-    <% if @dream.respond_to?(:date) && @dream.date.present? %>
-      <p class="dream-date"><%= @dream.date.strftime("%B %d") %></p>
-    <% elsif @dream.created_at.present? %>
-      <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
-    <% end %>
-
-    <div class="dream-body text-wrap">
-      <p class="dream-input"><%= @dream.input %></p>
-      <div id="<%= dom_id(@dream) %>">
-        <% if @dream.image.attached? %>
-          <%= render "shared/show_image", dream: @dream %>
-        <% else %>
-          <i class="fa-solid fa-circle-notch fa-spin"></i>
-          <span data-controller="typed-text"
-          data-typed-text-strings-value='["Consulting a sleep-deprived oracle...", "Asking your subconscious to explain itself... ", "Negotiating with the dream butcher...", "Adding an inexplicable amount of drama...", "Pretending this all makes sense...", "Almost there......", "Just a little bit more.......", "A tiny tiny tiny bit more......."]'
-          data-typed-text-type-speed-value="80"></span>
-        <% end %>
       </div>
 
       <%# Safe Date %>
@@ -41,15 +22,18 @@
         <p class="dream-date"><%= @dream.created_at.strftime("%B %d") %></p>
       <% end %>
 
-      <div class="dream-body text-wrap">
-        <p class="dream-input"><%= @dream.input %></p>
-        <div id="<%= dom_id(@dream) %>">
+    <div class="dream-body text-wrap">
+      <p class="dream-input"><%= @dream.input %></p>
+      <div id="<%= dom_id(@dream) %>">
+        <% if @dream.image.attached? %>
           <%= render "shared/show_image", dream: @dream %>
-        </div>
+        <% else %>
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <span id="spinner" data-controller="typed-text"
+          data-typed-text-strings-value='["Consulting a sleep-deprived magician...", "Asking your subconscious to explain itself... ", "Negotiating with the dream butcher...", "Adding an inexplicable amount of drama...", "Pretending this all makes sense...", "Almost there......", "Just a little bit more.......", "A tiny tiny tiny bit more......."]'
+          data-typed-text-type-speed-value="80"></span>
+        <% end %>
       </div>
-
-
-
 
       <% if @dream.try(:interpretation).present? %>
         <div class="dream-interpretation">
